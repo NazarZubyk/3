@@ -1,0 +1,23 @@
+{
+  "name": "3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "bs": "rm -rf ./dist && tsc && node dist/index.js",
+    "compile": "rm -rf ./dist && tsc",
+    "start": "node dist/index.js"
+    
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NazarZubyk/3.git"
+  },
+  "author": "Nazar Zubyk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NazarZubyk/3/issues"
+  },
+  "homepage": "https://github.com/NazarZubyk/3#readme"
+}
