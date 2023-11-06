@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hackathon</title>
+</head>
+<style>
+    button.my{
+        font-size:xx-large;
+    }
+</style>
+<body>
+    <button class="my" id="plus">+</button>
+    <div id="plusCounter">0</div>
+    <br>
+    <button class="my" id="minus">-</button>
+    <div id="minusCounter">0</div>
+
+    <script>
+        const buttons = Object.freeze({
+            PLUS : document.getElementById('plus'),
+            MINUS : document.getElementById('minus')
+        })
+        
+        const counters = Object.freeze({
+            PLUS : document.getElementById('plusCounter'),
+            MINUS : document.getElementById('minusCounter')
+        })
+
+        buttons.PLUS.addEventListener('click',function(){
+            fetch('http://localhost:3000/',{
+                method: 'POST',
+                headers:{
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({button : buttons.PLUS.id})
+            })        
+            .then(response=> response.json())
+            .then(data=>{
+                counters.PLUS.textContent = data.buttons.PLUS
+            })
+        })
+        buttons.MINUS.addEventListener('click',function(){
+            fetch('http://localhost:3000/',{
+                method: 'POST',
+                headers:{
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({button : buttons.MINUS.id})
+            }
+                 )
+            .then(response=> response.json())
+            .then(data=>{
+                counters.MINUS.textContent = data.buttons.MINUS;
+            })
+        })
+    </script>
+</body>
+</html>
